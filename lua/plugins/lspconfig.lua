@@ -28,6 +28,7 @@ return {
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Documentation" })
+			vim.keymap.set("i", "<C-p>", vim.lsp.buf.signature_help, {desc = "LSP Signature Help"})
 		end,
 	},
 }
