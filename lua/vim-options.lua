@@ -10,3 +10,5 @@ vim.o.hlsearch = false
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+vim.wo.signcolumn = "yes"
