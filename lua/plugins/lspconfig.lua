@@ -14,13 +14,17 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			lspconfig.lua_ls.setup({
-				capabilities = capabilities
+				capabilities = capabilities,
 			})
 			lspconfig.tsserver.setup({
-				capabilities = capabilities
+				capabilities = capabilities,
+				on_attach = function(client, _)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+				end,
 			})
 			lspconfig.eslint.setup({
-				capabilities = capabilities
+				capabilities = capabilities,
 			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
@@ -28,7 +32,7 @@ return {
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Documentation" })
-			vim.keymap.set("i", "<C-p>", vim.lsp.buf.signature_help, {desc = "LSP Signature Help"})
+			vim.keymap.set("i", "<C-p>", vim.lsp.buf.signature_help, { desc = "LSP Signature Help" })
 		end,
 	},
 }
