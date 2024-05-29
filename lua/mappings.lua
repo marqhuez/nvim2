@@ -36,5 +36,14 @@ vim.keymap.set("i", "kj", "<Esc>", { desc = "Exit insert mode" })
 vim.keymap.set("i", "<A-d>", "<C-o>yy<C-o>p", { desc = "Duplicate line" })
 vim.keymap.set("n", "<A-d>", "yyp", { desc = "Duplicate line" })
 
-vim.keymap.set('n', '<C-d>', '<C-d>zz', {})
-vim.keymap.set('n', '<C-u>', '<C-u>zz', {})
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {})
+
+vim.keymap.set("n", "<leader>fd", function()
+	vim.diagnostic.open_float({ border = "rounded" })
+end, { desc = "Floating diagnostic" })
+vim.keymap.set("n", "<leader>q", function()
+	vim.diagnostic.setloclist()
+end, { desc = "Diagnostic setloclist" })
+
+vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", "Restart LSP Server")
