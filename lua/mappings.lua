@@ -46,4 +46,4 @@ vim.keymap.set("n", "<leader>q", function()
 	vim.diagnostic.setloclist()
 end, { desc = "Diagnostic setloclist" })
 
-vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", "Restart LSP Server")
+vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", {desc = "Restart LSP Server"})

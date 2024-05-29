@@ -45,7 +45,12 @@ return {
 			lspconfig.eslint.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.volar.setup({})
+			lspconfig.volar.setup({
+				on_attach = function(client, _)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+				end,
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
 			vim.keymap.set("n", "<C-p>", vim.lsp.buf.signature_help, { desc = "LSP signature help" })
